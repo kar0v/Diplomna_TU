@@ -4,7 +4,6 @@
 Vagrant.configure("2") do |config|
 
   config.vm.box = "geerlingguy/centos7"
-  #config.vm.define = "MyVMTest"
 
   config.vm.network "forwarded_port", guest: 80, host: 9080
 
@@ -17,8 +16,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "ansible" do | ansible | 
-    ansible.playbook = "playbook.yml"
- #   ansible.groups = "MyGroup" => ["MyVMTest"]
+    ansible.playbook = "/home/karov/Diplomna/Ansible/Wordpress/playbook.yml"
   end
 
 end

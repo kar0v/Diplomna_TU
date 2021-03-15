@@ -1,0 +1,14 @@
+# Firewall Configuration
+# Selinux is in permissive mode. 
+
+- name: Configure Firewall
+  firewalld: 
+    zone: public 
+    service: http 
+    permanent: yes 
+    state: enabled
+
+- name: Reload Firewall
+  service: 
+    name: firewalld 
+    state: reloaded

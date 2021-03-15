@@ -1,0 +1,13 @@
+- name: Install PHP Remi Repository
+  yum_repository: 
+    name: Remi PHP Repo
+    description: Remi PHP Repo
+    baseurl: http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    gpgcheck: no
+ 
+- name: Install PHP Extensions
+  yum: 
+    name: {{ item }} 
+    state: latest
+    update_cache: true
+  loop: "{{ php_modules }}"
