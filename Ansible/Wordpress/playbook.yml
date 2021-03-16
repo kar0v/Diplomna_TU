@@ -3,9 +3,10 @@
   become: true
   vars_files:
     - vars/default.yml
+    - vars/secure.yml
   roles:
     - httpd
     - php
     - mysql
     - wordpress
-    - firewall
+    - firewalld

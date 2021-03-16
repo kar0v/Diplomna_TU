@@ -1,13 +1,14 @@
 - name: Install PHP Remi Repository
-  yum_repository: 
-    name: Remi PHP Repo
-    description: Remi PHP Repo
-    baseurl: http://rpms.remirepo.net/enterprise/remi-release-8.rpm
-    gpgcheck: no
- 
+  yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: latest
+
+- name: enable remi php module
+  command: "yum-config-manager --enable remi-php74" 
+
 - name: Install PHP Extensions
   yum: 
-    name: {{ item }} 
+    name: "{{ item }}"
     state: latest
     update_cache: true
   loop: "{{ php_modules }}"

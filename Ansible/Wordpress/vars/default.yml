@@ -1,0 +1,7 @@
+#PHP Settings
+php_modules: [ 'php74','php74-php-pecl-mysql', 'php-mysqlnd', 'php', 'php-curl', 'php-gd', 'php-mbstring', 'php-xml', 'php-xmlrpc', 'php-soap', 'php-intl', 'php-zip' ]
+
+#HTTP Settings
+http_host: "wp.example.com"
+http_conf: "wp.example.com.conf"
+http_port: "80"

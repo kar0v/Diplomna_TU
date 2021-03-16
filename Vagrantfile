@@ -10,13 +10,14 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "/home/karov/Diplomna", "/vagrant_data"
 
   config.vm.provider "virtualbox" do |vb|
-    vb.gui = true
+    vb.gui = false
     vb.cpus = 2
     vb.memory = "2048"
   end
 
   config.vm.provision "ansible" do | ansible | 
-    ansible.playbook = "/home/karov/Diplomna/Ansible/Wordpress/playbook.yml"
+    ansible.raw_arguments = "--vault-password-file=Ansible/Wordpress/vars/secret.txt"
+    ansible.playbook = "Ansible/Wordpress/playbook.yml"
   end
 
 end
