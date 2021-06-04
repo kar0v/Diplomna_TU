@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "forwarded_port", guest: 80, host: 9080
 
-  config.vm.synced_folder "/home/karov/Diplomna", "/vagrant_data"
+#  config.vm.synced_folder "/home/karov/Diplomna", "/vagrant_data"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
